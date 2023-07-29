@@ -1,4 +1,4 @@
-package com.test.training.step_one;
+package com.test.training.next_step.level_2;
 
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package com.test.training.step_one;
+package com.test.training.next_step.level_2;
 
 /**
  * level 2 - 이진 변환 반복하기
