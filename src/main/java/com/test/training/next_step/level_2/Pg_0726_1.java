@@ -1,4 +1,4 @@
-package com.test.training.step_one;
+package com.test.training.next_step.level_2;
 
 import java.util.Arrays;
 
@@ -17,7 +17,7 @@ public class Pg_0726_1 {
 
         Arrays.sort(a);
         Arrays.sort(b);
-        
+
         for (int i = 0; i < a.length; i++) {
             answer += a[i] * b[b.length - i - 1];
         }
