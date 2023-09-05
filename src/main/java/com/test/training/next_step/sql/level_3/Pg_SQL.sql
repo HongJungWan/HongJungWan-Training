@@ -1,13 +1,23 @@
 //@formatter:off
-
 -- level 3
--- 조회 수가 가장 많은 중고거래 게시판의 첨부파일 조회하기
 
+-- 조회 수가 가장 많은 중고거래 게시판의 첨부파일 조회하기
 SELECT CONCAT('/home/grep/src/', FILE.BOARD_ID, '/', FILE_ID, FILE_NAME, FILE_EXT) AS FILE_PATH
 FROM USED_GOODS_FILE AS FILE
 LEFT JOIN USED_GOODS_BOARD AS BOARD
 ON FILE.BOARD_ID = BOARD.BOARD_ID
 WHERE VIEWS = (SELECT MAX(VIEWS) FROM USED_GOODS_BOARD)
 ORDER BY FILE.FILE_ID DESC
+
+
+-- 조건별로 분류하여 주문상태 출력하기
+SELECT ORDER_ID, PRODUCT_ID, DATE_FORMAT(OUT_DATE, '%Y-%m-%d') as OUT_DATE,
+    CASE
+        WHEN OUT_DATE IS NULL THEN '출고미정'
+        WHEN OUT_DATE <= '2022-05-01' THEN '출고완료'
+        WHEN OUT_DATE > '2022-05-01' THEN '출고대기'
+    END as 출고여부
+FROM FOOD_ORDER
+ORDER BY ORDER_ID ASC;
 
 //@formatter:off
