@@ -1,4 +1,4 @@
-package com.test.training.next_step.level_0;
+package com.test.training.next_step.level_0.stream_practice;
 
 import java.util.ArrayList;
 import java.util.List;
