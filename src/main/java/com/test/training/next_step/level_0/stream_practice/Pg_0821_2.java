@@ -1,4 +1,4 @@
-package com.test.training.next_step.level_0;
+package com.test.training.next_step.level_0.stream_practice;
 
 /**
  * level 0 - 문자열 정수의 합
