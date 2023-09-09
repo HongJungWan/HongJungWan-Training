@@ -1,5 +1,24 @@
 //@formatter:off
+//ORACLE
 
 -- level 2
+
+-- 동물 수 구하기
+SELECT NAME, COUNT(NAME) as COUNT
+FROM ANIMAL_INS
+GROUP BY NAME
+HAVING COUNT(NAME) >= 2
+ORDER BY NAME;
+
+
+-- NULL 처리하기
+SELECT ANIMAL_TYPE,
+       CASE
+           WHEN NAME IS NULL THEN 'No name'
+           WHEN NAME IS NOT NULL THEN NAME
+       END as NAME,
+       SEX_UPON_INTAKE
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID
 
 //@formatter:off
