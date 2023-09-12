@@ -12,7 +12,7 @@ public class Pg_0912_1 {
         System.out.println(solution("[)(]"));   // 0
     }
 
-    static public int solution(String s) {
+    public static int solution(String s) {
         int answer = 0;
 
         for (int i = 0; i < s.length(); i++) {
