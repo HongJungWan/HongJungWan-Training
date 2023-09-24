@@ -11,11 +11,21 @@ import java.util.stream.Collectors;
  * <p>
  * 다시 풀기.
  */
-public class Pg_0922_1 {
+public class Pg_0925_1 {
     public static void main(String[] args) {
         System.out.println(solution(
                 new String[]{"classic", "pop", "classic", "classic", "pop"},
                 new int[]{500, 600, 150, 800, 2500}));
+    }
+
+    static class Song {
+        int index;
+        int play;
+
+        public Song(int index, int play) {
+            this.index = index;
+            this.play = play;
+        }
     }
 
     public static int[] solution(String[] genres, int[] plays) {
@@ -27,7 +37,7 @@ public class Pg_0922_1 {
             // 1. 장르별 총 재생 횟수를 계산
             genrePlayCount.put(genres[i], genrePlayCount.getOrDefault(genres[i], 0) + plays[i]);
 
-            // 2. 각 장르에 속한 노래들을 재생 횟수와 고유 번호에 따라 정렬
+            // 2. 각 장르에 속한 노래들을 재생 횟수와 고유 번호에 따라 저장
             List<Song> songs = genreSongs.getOrDefault(genres[i], new ArrayList<>());
             songs.add(new Song(i, plays[i]));
             genreSongs.put(genres[i], songs);
@@ -41,16 +51,6 @@ public class Pg_0922_1 {
                 .toArray();
     }
 
-    static class Song {
-        int index;
-        int play;
-
-        public Song(int index, int play) {
-            this.index = index;
-            this.play = play;
-        }
-    }
-
     private static List<Integer> createAnswerList(Map<String, Integer> genrePlayCount, Map<String, List<Song>> genreSongs) {
         return genrePlayCount.entrySet().stream()
                 .sorted((a, b) -> b.getValue().compareTo(a.getValue())) // 장르별 총 재생 횟수에 따라 내림차순 정렬
@@ -61,3 +61,8 @@ public class Pg_0922_1 {
                 .collect(Collectors.toList());
     }
 }
+
+// flatMap은 스트림의 각 요소를 여러 개의 객체로 변환할 수 있는 중간 연산
+//
+// map과 유사하지만, map은 스트림의 각 요소를 하나의 객체로만 변환
+// flatMap은 스트림의 각 요소를 여러 개의 객체로 변환한 후, 이를 하나의 스트림으로 연결
