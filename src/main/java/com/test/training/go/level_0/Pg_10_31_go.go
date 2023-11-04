@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func solution(n int) int {
+func Pg_10_31(n int) int {
 	result := 0
 
 	if n%2 == 1 {
@@ -19,6 +19,6 @@ func solution(n int) int {
 }
 
 func main() {
-	fmt.Println(solution(7))  // 16
-	fmt.Println(solution(10)) // 220
+	fmt.Println(Pg_10_31(7))  // 16
+	fmt.Println(Pg_10_31(10)) // 220
 }
