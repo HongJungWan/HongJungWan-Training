@@ -6,7 +6,7 @@ import (
 	"unicode"
 )
 
-func solution(myString string) string {
+func Pg_11_15(myString string) string {
 	var result strings.Builder
 
 	for _, ch := range myString {
@@ -23,6 +23,6 @@ func solution(myString string) string {
 }
 
 func main() {
-	fmt.Println(solution("abstract algebra")) // "AbstrAct AlgebrA"
-	fmt.Println(solution("PrOgRaMmErS"))      // "progrAmmers"
+	fmt.Println(Pg_11_15("abstract algebra")) // "AbstrAct AlgebrA"
+	fmt.Println(Pg_11_15("PrOgRaMmErS"))      // "progrAmmers"
 }
