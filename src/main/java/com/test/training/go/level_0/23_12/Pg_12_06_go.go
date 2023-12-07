@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func solution(todo_list []string, finished []bool) []string {
+func Pg_12_06(todo_list []string, finished []bool) []string {
 	result := []string{}
 
 	for i, check := range finished {
@@ -17,5 +17,5 @@ func main() {
 	todo_list := []string{"problemsolving", "practiceguitar", "swim", "studygraph"}
 	finished := []bool{true, false, true, false}
 
-	fmt.Println(solution(todo_list, finished))
+	fmt.Println(Pg_12_06(todo_list, finished))
 }
