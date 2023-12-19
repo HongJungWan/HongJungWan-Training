@@ -3,7 +3,7 @@ package main
 
 import "fmt"
 
-func solution(numbers []int, target int) int {
+func Pg_12_18(numbers []int, target int) int {
 	return dfs(numbers, target, 0, 0)
 }
 
@@ -21,9 +21,9 @@ func dfs(numbers []int, target, index, currentSum int) int {
 func main() {
 	numbers := []int{1, 1, 1, 1, 1}
 	target := 3
-	fmt.Println("target number:", solution(numbers, target))
+	fmt.Println("target number:", Pg_12_18(numbers, target))
 
 	numbers2 := []int{4, 1, 2, 1}
 	target2 := 4
-	fmt.Println("target number:", solution(numbers2, target2))
+	fmt.Println("target number:", Pg_12_18(numbers2, target2))
 }
