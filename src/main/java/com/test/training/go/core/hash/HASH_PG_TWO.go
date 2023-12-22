@@ -3,7 +3,7 @@ package main
 
 import "fmt"
 
-func solution(nums []int) int {
+func selectUniquePokemon(nums []int) int {
 	max := len(nums) / 2
 	set := make(map[int]bool)
 
@@ -19,9 +19,9 @@ func solution(nums []int) int {
 }
 
 func main() {
-	fmt.Println(solution([]int{3, 1, 2, 3}))       // 출력: 2
-	fmt.Println(solution([]int{3, 3, 3, 2, 2, 4})) // 출력: 3
-	fmt.Println(solution([]int{3, 3, 3, 2, 2, 2})) // 출력: 2
+	fmt.Println(selectUniquePokemon([]int{3, 1, 2, 3}))       // 출력: 2
+	fmt.Println(selectUniquePokemon([]int{3, 3, 3, 2, 2, 4})) // 출력: 3
+	fmt.Println(selectUniquePokemon([]int{3, 3, 3, 2, 2, 2})) // 출력: 2
 }
 
 // 로직
