@@ -4,7 +4,7 @@ package main
 
 import "fmt"
 
-func Solution(clothes [][]string) int {
+func countClothingCombinations(clothes [][]string) int {
 	clothesMap := make(map[string]int)
 
 	for _, item := range clothes {
@@ -23,7 +23,7 @@ func main() {
 	clothes1 := [][]string{{"yellow_hat", "headgear"}, {"blue_sunglasses", "eyewear"}, {"green_turban", "headgear"}}
 
 	// 결과 출력
-	fmt.Println(Solution(clothes1)) // 5
+	fmt.Println(countClothingCombinations(clothes1)) // 5
 }
 
 // 로직
