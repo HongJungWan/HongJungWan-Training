@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-func solution(my_string string) []string {
+func Pg_12_27(my_string string) []string {
 	length := len(my_string)
 	suffixes := make([]string, length)
 
@@ -17,6 +17,6 @@ func solution(my_string string) []string {
 }
 
 func main() {
-	fmt.Println(solution("banana"))      // ["a", "ana", "anana", "banana", "na", "nana"]
-	fmt.Println(solution("programmers")) // ["ammers", "ers", "grammers", "mers", "mmers", "ogrammers", "programmers", "rammers", "rogrammers", "rs", "s"]
+	fmt.Println(Pg_12_27("banana"))      // ["a", "ana", "anana", "banana", "na", "nana"]
+	fmt.Println(Pg_12_27("programmers")) // ["ammers", "ers", "grammers", "mers", "mmers", "ogrammers", "programmers", "rammers", "rogrammers", "rs", "s"]
 }
