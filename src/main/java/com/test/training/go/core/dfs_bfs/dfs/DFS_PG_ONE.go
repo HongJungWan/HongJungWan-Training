@@ -3,27 +3,27 @@ package main
 
 import "fmt"
 
-func Pg_12_18(numbers []int, target int) int {
-	return dfs(numbers, target, 0, 0)
+func findTargetNumber(numbers []int, target int) int {
+	return combinationsToTargetDFS(numbers, target, 0, 0)
 }
 
-func dfs(numbers []int, target, index, currentSum int) int {
+func combinationsToTargetDFS(numbers []int, target, index, currentSum int) int {
 	if index == len(numbers) {
 		if currentSum == target {
 			return 1
 		}
 		return 0
 	}
-	return dfs(numbers, target, index+1, currentSum+numbers[index]) +
-		dfs(numbers, target, index+1, currentSum-numbers[index])
+	return combinationsToTargetDFS(numbers, target, index+1, currentSum+numbers[index]) +
+		combinationsToTargetDFS(numbers, target, index+1, currentSum-numbers[index])
 }
 
 func main() {
 	numbers := []int{1, 1, 1, 1, 1}
 	target := 3
-	fmt.Println("target number:", Pg_12_18(numbers, target))
+	fmt.Println("Number target:", findTargetNumber(numbers, target))
 
 	numbers2 := []int{4, 1, 2, 1}
 	target2 := 4
-	fmt.Println("target number:", Pg_12_18(numbers2, target2))
+	fmt.Println("Number target:", findTargetNumber(numbers2, target2))
 }
