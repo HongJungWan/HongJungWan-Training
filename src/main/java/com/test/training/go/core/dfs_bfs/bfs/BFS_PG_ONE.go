@@ -13,7 +13,7 @@ func isValid(x, y, n, m int, maps [][]int, visited [][]bool) bool {
 	return x >= 0 && x < n && y >= 0 && y < m && maps[x][y] == 1 && !visited[x][y]
 }
 
-func Pg_12_19(maps [][]int) int {
+func shortPathDFS(maps [][]int) int {
 	n := len(maps)
 	m := len(maps[0])
 	visited := make([][]bool, n)
@@ -57,7 +57,7 @@ func main() {
 		{1, 1, 1, 0, 1},
 		{0, 0, 0, 0, 1},
 	}
-	fmt.Println(Pg_12_19(mapsSolutionOne)) // 11
+	fmt.Println(shortPathDFS(mapsSolutionOne)) // 11
 
 	mapSolutionTwo := [][]int{
 		{1, 0, 1, 1, 1},
@@ -66,5 +66,5 @@ func main() {
 		{1, 1, 1, 0, 0},
 		{0, 0, 0, 0, 1},
 	}
-	fmt.Println(Pg_12_19(mapSolutionTwo)) // -1
+	fmt.Println(shortPathDFS(mapSolutionTwo)) // -1
 }
