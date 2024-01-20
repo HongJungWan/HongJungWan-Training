@@ -28,7 +28,6 @@ func digitToWord(digit rune) string {
 		'8': "eight",
 		'9': "nine",
 	}
-
 	return words[digit]
 }
 
