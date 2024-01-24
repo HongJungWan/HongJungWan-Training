@@ -1,4 +1,4 @@
-// 줄 세우기
+// BG - 줄 세우기
 
 package main
 
