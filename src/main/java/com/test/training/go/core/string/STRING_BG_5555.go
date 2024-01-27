@@ -48,3 +48,10 @@ func main() {
 	count := countRingsContainingTarget(target, rings)
 	fmt.Println(count)
 }
+
+// [Go 언어 표준 라이브러리]
+
+// strings.Contains(s, substr string) bool 형태로 선언
+//
+// 이 함수는 s라는 문자열 내에 substr이라는 하위 문자열이 포함되어 있는지를 검사
+// 만약 substr이 s 안에 있으면 true를, 그렇지 않으면 false를 반환
