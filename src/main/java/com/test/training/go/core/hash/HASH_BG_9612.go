@@ -11,6 +11,7 @@ import (
 func readWords(n int) map[string]int {
 	wordFreq := make(map[string]int)
 	scanner := bufio.NewScanner(os.Stdin)
+
 	for i := 0; i < n; i++ {
 		scanner.Scan()
 		word := scanner.Text()
