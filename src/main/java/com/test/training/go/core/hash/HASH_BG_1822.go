@@ -11,6 +11,12 @@ import (
 	"strings"
 )
 
+func main() {
+	a, b := readSetsForDifference()
+	exclusiveElements := findExclusiveElements(a, b)
+	printResult(exclusiveElements)
+}
+
 func readSetsForDifference() (map[int]bool, []int) {
 	scanner := bufio.NewScanner(os.Stdin)
 
@@ -58,10 +64,4 @@ func printResult(elements []int) {
 		fmt.Printf("%d ", val)
 	}
 	fmt.Println() // 출력 형식을 깔끔하게 마무리
-}
-
-func main() {
-	a, b := readSetsForDifference()
-	exclusiveElements := findExclusiveElements(a, b)
-	printResult(exclusiveElements)
 }
