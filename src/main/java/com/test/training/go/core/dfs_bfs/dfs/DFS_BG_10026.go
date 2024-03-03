@@ -1,3 +1,5 @@
+// BG - 적록색약
+
 package main
 
 import (
