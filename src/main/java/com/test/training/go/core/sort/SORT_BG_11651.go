@@ -3,7 +3,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"sort"
 )
 
@@ -13,12 +15,16 @@ type Point struct {
 }
 
 func main() {
+	reader := bufio.NewReader(os.Stdin)
+	writer := bufio.NewWriter(os.Stdout)
+	defer writer.Flush()
+
 	var N int
-	fmt.Scan(&N) // 점의 개수 N 입력 받기
+	fmt.Fscanln(reader, &N) // 점의 개수 N 입력 받기
 
 	points := make([]Point, N)
 	for i := 0; i < N; i++ {
-		fmt.Scan(&points[i].x, &points[i].y) // 각 점의 좌표 입력 받기
+		fmt.Fscanln(reader, &points[i].x, &points[i].y) // 각 점의 좌표 입력 받기
 	}
 
 	// points 슬라이스를 y 좌표가 증가하는 순으로 정렬하되,
@@ -32,7 +38,7 @@ func main() {
 
 	// 정렬된 점들 출력
 	for _, p := range points {
-		fmt.Println(p.x, p.y)
+		fmt.Fprintln(writer, p.x, p.y)
 	}
 }
 
