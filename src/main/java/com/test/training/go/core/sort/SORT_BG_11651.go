@@ -28,7 +28,7 @@ func main() {
 	}
 
 	// points 슬라이스를 y 좌표가 증가하는 순으로 정렬하되,
-	// y 좌표가 같을 경우 x 좌표가 증가하는 순서로 정렬
+	// ‼ y 좌표가 같을 경우 x 좌표가 증가하는 순서로 정렬
 	sort.Slice(points, func(i, j int) bool {
 		if points[i].y == points[j].y {
 			return points[i].x < points[j].x
