@@ -41,12 +41,14 @@ func (s Students) Less(i, j int) bool {
 }
 
 func main() {
-	var n int
-	fmt.Scan(&n)
-
 	reader := bufio.NewReader(os.Stdin)
-	students := make(Students, 0, n)
+	writer := bufio.NewWriter(os.Stdout)
+	defer writer.Flush()
 
+	var n int
+	fmt.Fscanln(reader, &n) // N 개수 입력 받기
+
+	students := make(Students, 0, n)
 	for i := 0; i < n; i++ {
 		var name string
 		var korean, english, math int
