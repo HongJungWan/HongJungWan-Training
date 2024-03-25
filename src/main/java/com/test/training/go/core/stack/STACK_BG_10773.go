@@ -20,7 +20,7 @@ func main() {
 		num, _ := strconv.Atoi(scanner.Text())
 
 		if num == 0 {
-			// 가장 최근에 쓴 수를 지움
+			// 가장 최근에 쓴 수를 지움, 처음부터 len(stack)-1 인덱스까지의 요소를 포함하는 새로운 슬라이스를 생성
 			stack = stack[:len(stack)-1]
 		} else {
 			// 수를 슬라이스에 추가
