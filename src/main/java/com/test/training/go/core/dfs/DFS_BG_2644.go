@@ -17,11 +17,11 @@ func main() {
 		graph[parent] = append(graph[parent], child)
 		graph[child] = append(graph[child], parent) // 양방향으로 추가
 	}
-	result := calculateKinship(graph, visited, person1, person2, 0)
+	result := calculateKinshipDFS(graph, visited, person1, person2, 0)
 	fmt.Println(result)
 }
 
-func calculateKinship(graph map[int][]int, visited map[int]bool, start, end, depth int) int {
+func calculateKinshipDFS(graph map[int][]int, visited map[int]bool, start, end, depth int) int {
 	if start == end {
 		return depth
 	}
@@ -29,7 +29,7 @@ func calculateKinship(graph map[int][]int, visited map[int]bool, start, end, dep
 	visited[start] = true
 	for _, next := range graph[start] {
 		if !visited[next] {
-			distance := calculateKinship(graph, visited, next, end, depth+1)
+			distance := calculateKinshipDFS(graph, visited, next, end, depth+1)
 			if distance != -1 {
 				return distance
 			}
