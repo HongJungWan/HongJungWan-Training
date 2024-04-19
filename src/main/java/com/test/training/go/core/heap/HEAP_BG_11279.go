@@ -8,18 +8,18 @@ import (
 	"strconv"
 )
 
-// IntMinHeap is a type that implements heap.Interface
-type IntMinHeap []int
+// IntMaxHeap is a max-heap
+type IntMaxHeap []int
 
-func (h IntMinHeap) Len() int           { return len(h) }
-func (h IntMinHeap) Less(i, j int) bool { return h[i] < h[j] }
-func (h IntMinHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h IntMaxHeap) Len() int           { return len(h) }
+func (h IntMaxHeap) Less(i, j int) bool { return h[i] > h[j] } // 최대 힙을 위해 부호를 바꿈
+func (h IntMaxHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
 
-func (h *IntMinHeap) Push(x interface{}) {
+func (h *IntMaxHeap) Push(x interface{}) {
 	*h = append(*h, x.(int))
 }
 
-func (h *IntMinHeap) Pop() interface{} {
+func (h *IntMaxHeap) Pop() interface{} {
 	old := *h
 	n := len(old)
 	x := old[n-1]
@@ -34,7 +34,7 @@ func main() {
 
 	scanner.Scan()
 	n, _ := strconv.Atoi(scanner.Text())
-	h := &IntMinHeap{}
+	h := &IntMaxHeap{}
 	heap.Init(h)
 
 	for i := 0; i < n; i++ {
@@ -42,10 +42,9 @@ func main() {
 		x, _ := strconv.Atoi(scanner.Text())
 		if x == 0 {
 			if h.Len() == 0 {
-				writer.WriteString("0\n")
+				fmt.Fprintln(writer, 0)
 			} else {
-				fmt.Fprintf(writer, "%d\n", (*h)[0])
-				heap.Remove(h, 0)
+				fmt.Fprintln(writer, heap.Pop(h))
 			}
 		} else {
 			heap.Push(h, x)
