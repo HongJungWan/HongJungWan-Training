@@ -44,3 +44,5 @@ func insertionSort(arr []int) {
 		arr[j+1] = key
 	}
 }
+
+// Test Case : 4 5 1
