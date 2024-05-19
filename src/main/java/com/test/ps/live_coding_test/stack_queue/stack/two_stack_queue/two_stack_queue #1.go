@@ -1,3 +1,3 @@
 // TODO: 스택 2개로 큐 만들기
 
-package stack
+package two_stack_queue
