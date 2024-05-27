@@ -64,6 +64,7 @@ func (s *Stack) Pop() (int, error) {
 		return 0, fmt.Errorf("stack is empty")
 	}
 
+	// 마지막 요소만 남기고 queue2로 옮김
 	for len(s.queue1.items) > 1 {
 		item, _ := s.queue1.Dequeue()
 		s.queue2.Enqueue(item)
@@ -80,6 +81,7 @@ func (s *Stack) Peek() (int, error) {
 		return 0, fmt.Errorf("stack is empty")
 	}
 
+	// 마지막 요소만 남기고 queue2로 옮김
 	for len(s.queue1.items) > 1 {
 		item, _ := s.queue1.Dequeue()
 		s.queue2.Enqueue(item)
