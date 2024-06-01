@@ -1,4 +1,5 @@
 // TODO: Floyd’s Cycle Detection Algorithm, 연결 리스트가 주어졌을 때 해당 연결 리스트가 nil로 끝나는지 순환 되는지 검사
+// TODO: 단일 연결 리스트 (singly linked list)
 
 package main
 
