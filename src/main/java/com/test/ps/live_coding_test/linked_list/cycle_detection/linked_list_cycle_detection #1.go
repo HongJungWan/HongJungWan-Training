@@ -15,23 +15,18 @@ func main() {
 	node3 := &ListNode{Val: 0}
 	node4 := &ListNode{Val: -4}
 
-	// Connect nodes to form the list: 3 -> 2 -> 0 -> -4
+	// Connect nodes to form the list: 3 -> 2 -> 0 -> -4 > 2
 	node1.Next = node2
 	node2.Next = node3
 	node3.Next = node4
-
-	// Create a cycle: -4 -> 2 (node4.Next = node2)
 	node4.Next = node2
-
-	// Test the hasCycle function
 	fmt.Println(hasCycle(node1)) // Output: true
 
 	// Create a list without a cycle: 1 -> 2
 	nodeA := &ListNode{Val: 1}
 	nodeB := &ListNode{Val: 2}
-	nodeA.Next = nodeB
 
-	// Test the hasCycle function
+	nodeA.Next = nodeB
 	fmt.Println(hasCycle(nodeA)) // Output: false
 }
 
@@ -47,15 +42,25 @@ func hasCycle(head *ListNode) bool {
 		if fast == nil || fast.Next == nil {
 			return false
 		}
+
 		slow = slow.Next
 		fast = fast.Next.Next
+
+		if slow == fast {
+			return true
+		}
 	}
 
-	return true
+	return false
 }
 
 /*
-Cycle이 있는 연결 리스트: 3 -> 2 -> 0 -> -4 -> (cycle back to 2)
+Cycle이 있는 연결 리스트: 3 -> 2 -> 0 -> -4 -> 2 (cycle back to 2)
 
 Cycle이 없는 연결 리스트: 1 -> 2
+
+1. 포인터 두 개 사용: 알고리즘은 'slow' (거북이)와 'fast' (토끼)라는 두 개의 포인터를 사용, 'slow' 포인터는 한 번에 한 노드씩 이동하고, 'fast' 포인터는 한 번에 두 노드씩 이동
+2. 충돌 검사: 'slow'와 'fast' 포인터가 같은 노드를 가리키게 되면 순환(cycle)이 존재한다는 것을 의미
+3. 종료 조건: 'fast' 포인터 또는 'fast' 포인터의 다음 노드가 nil (즉, 리스트의 끝에 도달함)이면 순환(cycle)이 없는 것으로 판단하고 false 반환
+4. 순환의 존재 유무 판단: 만약 순환(cycle)이 있으면 결국 'fast' 포인터가 'slow' 포인터를 따라잡고 true 반환, 순환이 없으면 따라잡지 못하고 false 반환
 */
