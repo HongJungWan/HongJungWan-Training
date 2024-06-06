@@ -1,6 +1,3 @@
-// TODO: 문자열 압축 문제
-// TODO: 연속된 동일 문자를, 문자와 그 개수로 대체 -> 압축
-
 package main
 
 import (
@@ -8,18 +5,18 @@ import (
 	"strconv"
 )
 
-func compress(chars []byte) {
+func compress(chars []byte) int {
 	n := len(chars)
 
 	index := 0 // 압축된 문자열을 쓰기 위한 위치
 	count := 1
 
 	for i := 1; i <= n; i++ {
-		// 현재 문자와 이전 문자가 동일하면 count 증가
-		if i < n && chars[i] == chars[i-1] {
+		// 이전 문자와 현재 문자가 동일하면 count 증가
+		if i < n && chars[i-1] == chars[i] {
 			count++
 		} else {
-			// 현재 문자를 배열에 저장한 후 인덱스 증가
+			// 이전 문자를 배열에 저장한 후 인덱스 증가
 			chars[index] = chars[i-1]
 			index++
 
@@ -36,10 +33,13 @@ func compress(chars []byte) {
 			count = 1
 		}
 	}
+
+	// 압축된 배열의 길이를 반환
+	return index
 }
 
 func main() {
 	chars := []byte{'a', 'a', 'b', 'b', 'c', 'c', 'c'}
-	compress(chars)
-	fmt.Printf("\nCompressed array: %s\n", chars)
+	newLength := compress(chars)
+	fmt.Printf("Compressed array: %s\n", chars[:newLength])
 }
