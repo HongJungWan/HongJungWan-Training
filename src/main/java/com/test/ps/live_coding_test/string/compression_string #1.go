@@ -1,3 +1,6 @@
+// TODO: 문자열 압축 문제
+// TODO: 연속된 동일 문자를, 문자와 그 개수로 대체 -> 압축
+
 package main
 
 import (
