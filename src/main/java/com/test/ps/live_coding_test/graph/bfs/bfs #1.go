@@ -4,33 +4,27 @@
 package main
 
 import (
-	"container/list"
 	"fmt"
 )
 
 func BFS(graph map[int][]int, start int, visited map[int]bool) []int {
-	// 큐 생성
-	queue := list.New()
-	result := []int{}
-
-	// 시작 노드를 큐에 추가하고 방문 처리
-	queue.PushBack(start)
+	// 현재 노드를 방문 처리
 	visited[start] = true
+	result := []int{}
+	queue := []int{start}
 
 	// 큐가 빌 때까지 반복
-	for queue.Len() > 0 {
-		// 큐의 앞에서 노드를 꺼냅니다.
-		element := queue.Front()
-		node := element.Value.(int)
-		queue.Remove(element)
+	for len(queue) > 0 {
+		// Dequeue
+		node := queue[0]
+		queue = queue[1:]
 		result = append(result, node)
 
 		// 현재 노드의 이웃 노드들을 순회
 		for _, neighbor := range graph[node] {
-
 			// 방문하지 않은 이웃 노드를 큐에 추가하고 방문 처리
 			if !visited[neighbor] {
-				queue.PushBack(neighbor)
+				queue = append(queue, neighbor)
 				visited[neighbor] = true
 			}
 		}
