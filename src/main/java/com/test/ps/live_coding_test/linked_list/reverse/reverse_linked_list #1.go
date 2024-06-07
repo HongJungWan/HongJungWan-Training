@@ -1,4 +1,4 @@
-// TODO: 연결 리스트
+// TODO: 연결 리스트 뒤집기
 // TODO: 단일 연결 리스트 (singly linked list)
 
 package main
@@ -11,7 +11,7 @@ type ListNode struct {
 }
 
 func main() {
-	// Create a list: 1 -> 2 -> 3 -> 4 -> 5
+	// Create a list: 1 -> 2 -> 3 -> nil
 	node1 := &ListNode{Val: 1}
 	node2 := &ListNode{Val: 2}
 	node3 := &ListNode{Val: 3}

@@ -8,12 +8,10 @@ import (
 	"fmt"
 )
 
-func BFS(graph map[int][]int, start int) {
+func BFS(graph map[int][]int, start int, visited map[int]bool) []int {
 	// 큐 생성
 	queue := list.New()
-
-	// 방문한 노드를 기록하기 위한 맵 생성
-	visited := make(map[int]bool)
+	result := []int{}
 
 	// 시작 노드를 큐에 추가하고 방문 처리
 	queue.PushBack(start)
@@ -25,10 +23,11 @@ func BFS(graph map[int][]int, start int) {
 		element := queue.Front()
 		node := element.Value.(int)
 		queue.Remove(element)
-		fmt.Println(node)
+		result = append(result, node)
 
 		// 현재 노드의 이웃 노드들을 순회
 		for _, neighbor := range graph[node] {
+
 			// 방문하지 않은 이웃 노드를 큐에 추가하고 방문 처리
 			if !visited[neighbor] {
 				queue.PushBack(neighbor)
@@ -36,6 +35,7 @@ func BFS(graph map[int][]int, start int) {
 			}
 		}
 	}
+	return result
 }
 
 func main() {
@@ -47,8 +47,14 @@ func main() {
 		3: {3},
 	}
 
+	// 방문 여부를 기록하는 맵
+	visited := make(map[int]bool)
+
 	// BFS 탐색 시작
-	BFS(graph, 2)
+	result := BFS(graph, 2, visited)
+
+	// 방문한 노드들을 출력
+	fmt.Println("BFS 방문 순서:", result)
 }
 
 /*

@@ -5,17 +5,18 @@ package main
 
 import "fmt"
 
-func DFS(graph map[int][]int, start int, visited map[int]bool) {
+func DFS(graph map[int][]int, start int, visited map[int]bool) []int {
 	// 현재 노드를 방문 처리
 	visited[start] = true
-	fmt.Println(start)
+	result := []int{start}
 
 	// 인접 노드들을 방문
 	for _, node := range graph[start] {
 		if !visited[node] {
-			DFS(graph, node, visited)
+			result = append(result, DFS(graph, node, visited)...)
 		}
 	}
+	return result
 }
 
 func main() {
@@ -31,7 +32,10 @@ func main() {
 	visited := make(map[int]bool)
 
 	// DFS 탐색 시작
-	DFS(graph, 2, visited)
+	result := DFS(graph, 2, visited)
+
+	// 방문한 노드들을 출력
+	fmt.Println("DFS 방문 순서:", result)
 }
 
 /*
