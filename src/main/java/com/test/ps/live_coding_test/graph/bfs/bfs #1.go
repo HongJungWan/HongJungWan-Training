@@ -20,12 +20,19 @@ func BFS(graph map[int][]int, start int, visited map[int]bool) []int {
 		queue = queue[1:]
 		result = append(result, node)
 
+		// 현재 큐 상태 출력
+		fmt.Println("현재 큐 상태:", queue)
+
 		// 현재 노드의 이웃 노드들을 순회
 		for _, neighbor := range graph[node] {
 			// 방문하지 않은 이웃 노드를 큐에 추가하고 방문 처리
+			// 각 노드를 방문 처리하면 그 노드는 다시 큐에 추가되지 않는다
 			if !visited[neighbor] {
 				queue = append(queue, neighbor)
 				visited[neighbor] = true
+
+				fmt.Println("\n방문한 노드:", neighbor)
+				fmt.Println("queue에 담긴 노드", neighbor, "\n")
 			}
 		}
 	}
@@ -45,7 +52,9 @@ func main() {
 	visited := make(map[int]bool)
 
 	// BFS 탐색 시작
-	result := BFS(graph, 2, visited)
+	start := 2
+	fmt.Println("방문한 노드:", start)
+	result := BFS(graph, start, visited)
 
 	// 방문한 노드들을 출력
 	fmt.Println("BFS 방문 순서:", result)
@@ -54,14 +63,4 @@ func main() {
 /*
 인접 리스트: 간선이 노드 수에 비해 적은 경우 사용 (희소 그래프)
 인접 행렬: 간선이 노드 수에 비해 많은 경우 사용 (밀집 그래프)
-
-
-container/list 패키지는 Go 표준 라이브러리 중 하나로, 양방향 연결 리스트(Doubly Linked List)를 제공하는 패키지
-
-queue := list.New(), list.New()를 호출하여 새로운 양방향 연결 리스트를 생성
-queue.PushBack(start), PushBack 메서드를 사용하여 큐의 끝부분에 새로운 요소를 추가
-
-element := queue.Front(), Front 메서드를 사용하여 큐의 앞에 있는 요소를 가져오고
-node := element.Value.(int), 그 값을 Value 필드를 통해 가져와 타입 변환
-queue.Remove(element), 그 후 Remove 메서드를 사용하여 큐에서 해당 요소를 제거
 */
