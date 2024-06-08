@@ -31,10 +31,11 @@ func reverseList(head *ListNode) *ListNode {
 	currentNode := head
 
 	for currentNode != nil {
-		next := currentNode.Next        // 현재 노드의 다음 노드를 저장
-		currentNode.Next = previousNode // 현재 노드의 포인터를 이전 노드를 가리키도록 변경
-		previousNode = currentNode      // 이전 노드를 현재 노드로 업데이트
-		currentNode = next              // 현재 노드를 다음 노드로 이동
+		next := currentNode.Next        // [방향을 바꾸기 위한 준비] 현재 노드의 다음 노드를 저장
+		currentNode.Next = previousNode // [방향 바꾸기] 현재 노드의 포인터를 이전 노드를 가리키도록 변경
+
+		previousNode = currentNode // [다음 연산을 위한 준비] 이전 노드를 현재 노드로 업데이트
+		currentNode = next         // 다음 연산을 위한 준비] 현재 노드를 다음 노드로 이동
 	}
 
 	return previousNode
