@@ -88,3 +88,43 @@ func main() {
 
 즉, 이진 트리에서는 방문 처리를 생략할 수 있지만, 일반 그래프에서는 방문 처리를 반드시 해야 한다.
 */
+
+/*
+[첫 번째 while 루프 (첫 번째 레벨)]
+
+1. queue의 길이를 levelSize에 저장 (levelSize = 1)
+
+2. for 루프 시작 (levelSize 만큼 반복)
+
+2-1. queue의 첫 번째 노드를 node에 저장 (node = 3)
+2-1. node의 값을 level에 추가 (level = [3])
+2-1. node의 왼쪽 자식 9를 queue에 추가
+2-1. node의 오른쪽 자식 20을 queue에 추가
+
+3. level 슬라이스를 result에 추가 (result = [[3]])
+
+---
+
+[두 번째 while 루프 (두 번째 레벨)]
+
+1. queue의 길이를 levelSize에 저장 (levelSize = 2)
+
+2. for 루프 시작 (levelSize 만큼 반복)
+
+2-1-1. 첫 번째 반복 (i = 0)
+2-1-2. queue의 첫 번째 노드를 node에 저장 (node = 9)
+2-1-3. node의 값을 level에 추가 (level = [9])
+2-1-4. node는 자식이 없으므로 queue에 추가 없음
+
+2-2-1. 두 번째 반복 (i = 1)
+2-2-2. queue의 첫 번째 노드를 node에 저장 (node = 20)
+2-2-3.node의 값을 level에 추가 (level = [9, 20])
+2-2-4.node의 왼쪽 자식 15를 queue에 추가
+2-2-5.node의 오른쪽 자식 7을 queue에 추가
+
+3. level 슬라이스를 result에 추가 (result = [[3], [9, 20]])
+
+---
+
+...
+*/
