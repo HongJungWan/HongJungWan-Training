@@ -40,10 +40,15 @@ func main() {
 
 	// 유효하지 않은 이진 탐색 트리 예시
 	root2 := &isTreeValid{Val: 5}
-	root2.Left = &isTreeValid{Val: 1}
-	root2.Right = &isTreeValid{Val: 4}
+	root2.Left = &isTreeValid{Val: 1}  // 왼쪽 자식 1: 1 < 5 (유효)
+	root2.Right = &isTreeValid{Val: 4} // 오른쪽 자식 4: 4 > 5 (유효하지 않음)
+
 	root2.Right.Left = &isTreeValid{Val: 3}
 	root2.Right.Right = &isTreeValid{Val: 6}
 
 	fmt.Println(isValidBST(root2)) // false
 }
+
+/*
+유효한 이진 탐색 트리 규칙 : 모든 왼쪽 자식 노드는 부모보다 작고, 모든 오른쪽 자식 노드는 부모보다 큽니다.
+*/
