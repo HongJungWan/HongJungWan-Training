@@ -13,7 +13,7 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func levelOrder(root *TreeNode) [][]int {
+func levelOrderBFS(root *TreeNode) [][]int {
 	if root == nil {
 		return [][]int{}
 	}
@@ -58,7 +58,7 @@ func main() {
 	root.Right.Right = &TreeNode{Val: 7}
 
 	// BFS를 이용한 레벨 순서 탐색
-	result := levelOrder(root)
+	result := levelOrderBFS(root)
 	fmt.Println(result)
 }
 
