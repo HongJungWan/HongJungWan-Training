@@ -1,5 +1,8 @@
 // TODO: 이진 탐색 트리
 // TODO: 유효한 이진 탐색 트리 확인 (DFS)
+//
+// TODO: 모든 왼쪽 자식 노드는 부모보다 작아야 합니다.
+// TODO: 모든 오른쪽 자식 노드는 부모보다 커야 합니다.
 
 package main
 
@@ -55,7 +58,7 @@ func main() {
 */
 
 /*
-validateDFS(node *isTreeValid, low, high int) 호출:
+validateDFS(node *isTreeValid, low, high int) bool 호출
 
 1-1. [최초 validateDFS 호출] validateDFS(root2, math.MinInt64, math.MaxInt64) 호출
 1-2. root2의 값은 5, 범위(low, high)는 (math.MinInt64, math.MaxInt64)
