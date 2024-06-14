@@ -31,13 +31,6 @@ func validateDFS(node *isTreeValid, low, high int) bool {
 }
 
 func main() {
-	// 유효한 이진 탐색 트리 예시
-	root := &isTreeValid{Val: 2}
-	root.Left = &isTreeValid{Val: 1}
-	root.Right = &isTreeValid{Val: 3}
-
-	fmt.Println(isValidBST(root)) // true
-
 	// 유효하지 않은 이진 탐색 트리 예시
 	root2 := &isTreeValid{Val: 5}
 	root2.Left = &isTreeValid{Val: 1}  // 왼쪽 자식 1: 1 < 5 (유효)
@@ -51,4 +44,31 @@ func main() {
 
 /*
 유효한 이진 탐색 트리 규칙 : 모든 왼쪽 자식 노드는 부모보다 작고, 모든 오른쪽 자식 노드는 부모보다 큽니다.
+*/
+
+/*
+     5
+    / \
+   1   4
+     /  \
+	3    6
+*/
+
+/*
+validateDFS(node *isTreeValid, low, high int) 호출:
+
+1-1. [최초 validateDFS 호출] validateDFS(root2, math.MinInt64, math.MaxInt64) 호출
+1-2. root2의 값은 5, 범위(low, high)는 (math.MinInt64, math.MaxInt64)
+
+
+2-1. [왼쪽 자식 노드 기준, validateDFS 호출] validateDFS(1, math.MinInt64, 5) 호출
+2-2. root2.Left의 값은 1, 범위는 (math.MinInt64, 5)
+2-3. [node.Val <= low || node.Val >= high] 조건 검사, node.val == 1
+2-4. root2.Left의 왼쪽과 오른쪽 자식 노드는 nil이므로 true 반환
+
+
+3-1. [오른쪽 자식 노드 기준, validateDFS 호출] validateDFS(4, 5, math.MaxInt64) 호출
+3-2. root2.Right의 값은 4, 범위는 (5, math.MaxInt64)
+3-3. [node.Val <= low || node.Val >= high] 조건 검사, node.val == 4
+3-4. 4는 유효하지 않은 값이므로 false를 반환
 */

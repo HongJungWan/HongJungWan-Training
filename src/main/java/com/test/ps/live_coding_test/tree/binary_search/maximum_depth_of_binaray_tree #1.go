@@ -29,7 +29,7 @@ func main() {
 	root.Left = &TreeDepth{Val: 9}
 	root.Right = &TreeDepth{Val: 20}
 	root.Right.Left = &TreeDepth{Val: 13}
-	root.Right.Right = &TreeDepth{Val: 7}
+	root.Right.Right = &TreeDepth{Val: 25}
 
 	fmt.Println("\nMax Depth:", MaxDepthDFS(root)) // Output: Max Depth: 3
 }
@@ -41,3 +41,7 @@ func main() {
      /  \
     15   7
 */
+
+/*
+
+ */
